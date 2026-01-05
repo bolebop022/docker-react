@@ -5,4 +5,13 @@ jobs:
   Build-React-Image:
     runs-on: ubuntu-latest
     steps:
-      - run: docker build -f ../../Dockerfile .
+      - run: echo "This job was triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server "
+      - run: echo "The name of your branch is $ {{ gitub.ref }} and your repository is ${{ github.repository }} "
+      - name: Checkout of repository code.
+        uses: actions/checkout@v5
+      - run: echo "The repository has been cloned to the runner"
+
+      - name: Build your docker image
+      - run: docker build .
+      - run: echo "This job's status is ${{ job.status }}"
