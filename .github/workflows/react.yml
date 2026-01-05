@@ -5,4 +5,4 @@ jobs:
   Build-React-Image:
     runs-on: ubuntu-latest
     steps:
-      - run: docker build .
+      - run: docker build -f ../../Dockerfile
