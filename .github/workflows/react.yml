@@ -1,0 +1,8 @@
+name: Docker React Demo
+run-name: ${{ github.actor }} is running on GitHub Actions
+on: [push]
+jobs:
+  Build-React-Image:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker build .
