@@ -21,4 +21,4 @@ jobs:
     environment: development
     steps:
       - name: Build and test image
-        run: docker run -e CI=true bolebop022/docker-react npm run test
+        run: docker run -e CI=true docker.io/bolebop022/docker-react npm run test
