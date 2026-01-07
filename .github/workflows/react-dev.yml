@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Build Image
-        run: docker build -t bolebop022/docker-react -f Dockerfile.dev .
+        run: docker buildx build --push -t bolebop022/docker-react --cache-to type=gha -f Dockerfile.dev .
 
   test:
     runs-on: ubuntu-latest
