@@ -27,6 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Rebuild using cache
-        run: docker buildx build -t bolebop022/docker-react --cache-from type=gha,scope=docker-react -f Dockerfile.dev .
+        run: docker buildx build -t bolebop022/docker-react --cache-from type=gha,scope=docker-react --load --progress=plain -f Dockerfile.dev .
       - name: Test
         run: docker run --rm -e CI=true bolebop022/docker-react npm run test
