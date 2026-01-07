@@ -25,6 +25,7 @@ jobs:
     needs: build
     environment: development
     steps:
+      - uses: actions/checkout@v5
       - name: Rebuild using cache
         run: docker buildx build -t bolebop022/docker-react --cache-from type=gha,scope=docker-react -f Dockerfile.dev .
       - name: Test
