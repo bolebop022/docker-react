@@ -12,7 +12,7 @@ jobs:
     environment: development
     steps:
       - name: Build Image
-        run: docker -t bolebop022/docker-react -f Dockerfile.dev .
+        run: docker build -t bolebop022/docker-react -f Dockerfile.dev .
 
   test:
     runs-on: ubuntu-latest
