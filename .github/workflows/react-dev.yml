@@ -1,0 +1,24 @@
+name: Test
+
+on:
+  push:
+    branches: [ "development" ]
+  pull_request:
+    branches: [ "development" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Build Image
+        run: docker -t bolebop022/docker-react -f Dockerfile.dev .
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    environment: development
+    steps:
+      - uses: actions/checkout@5
+      - name: Build and test image
+        run: docker run -e CI=true bolebop022/docker-react npm run test
