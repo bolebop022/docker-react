@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Build Image
-        run: docker buildx build -t bolebop022/docker-react --cache-to type=gha,scope=docker-react,mode=max -f Dockerfile.dev .
+        run: docker buildx build -t bolebop022/docker-react --cache-from type=gha --cache-to type=gha,scope=docker-react,mode=max -f Dockerfile.dev .
 
   test:
     runs-on: self-hosted
