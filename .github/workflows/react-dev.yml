@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: development
     steps:
       - uses: actions/checkout@v5
@@ -21,7 +21,7 @@ jobs:
         run: docker buildx build -t bolebop022/docker-react --cache-from type=gha --cache-to type=gha,scope=docker-react,mode=max -f Dockerfile.dev .
 
   test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: build
     environment: development
     steps:
